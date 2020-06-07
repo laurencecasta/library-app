@@ -12,7 +12,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   height: max-content;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .bookCard {
@@ -79,4 +79,38 @@ h1 {
 
 p {
   text-align: center;
+}
+
+button {
+  border: 0;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active{
+  border: none;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+#addBook {
+  font-family: 'Tenali Ramakrishna', sans-serif;
+  font-size: 27px;
+  padding: auto;
+  height: 1.45em;
+  font-weight: 500;
+  margin: 1rem;
+  border-radius: 8px;
+  background: rgb(69, 112, 114);
+  color: rgb(255, 231, 224);
+}
+
+#addBook:hover {
+  background: rgb(57, 88, 90);
+  transition-duration: 0.2s;
 }
