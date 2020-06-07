@@ -1,10 +1,82 @@
+/*Import fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tenali+Ramakrishna&display=swap');
+
+/*Set the size of the body element*/
+body {
+  height: 60vh;
+  background-color: cadetblue;
+}
+
 .cardContainer {
   display: flex;
-  height: 50%;
+  flex-wrap: wrap;
+  height: max-content;
+  justify-content: flex-start;
 }
 
 .bookCard {
-  border: 2px solid black;
-  height: 100%;
-  width: 25%;
+  box-shadow: 6px 2px 29px -4px rgba(0,0,0,0.75);
+  display: flex;
+  flex-direction: column;
+  height: 18rem;
+  border-radius: 15px;
+  justify-content: flex-start;
+  flex: 0 1 15rem;
+  background-color: rgb(218, 180, 168);
+  margin: 2rem;
+}
+
+.author {
+  font-size: 22px;
+  color: rgb(72, 144, 146);
+  font-family: 'Tenali Ramakrishna', sans-serif;
+  margin-top: 10px;
+}
+
+.pages {
+  color: rgb(72, 144, 146);
+  font-family: 'Tenali Ramakrishna', sans-serif;
+  margin-top: auto;
+  margin-bottom: 1rem;
+}
+
+.bookStatus {
+  color: rgb(72, 144, 146);
+  font-size: 20px;
+  font-family: 'Tenali Ramakrishna', sans-serif;
+  margin-top: 5px;
+  width: fit-content;
+  height: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  padding-right: 0.6em;
+  padding-left: 0.6em;
+  padding-top: 0.3em;
+  padding-bottom: 0;
+  font-weight: 600;
+}
+
+.read {
+  background: rgb(17, 163, 83);
+  color: rgb(61, 88, 88);
+}
+
+.notRead {
+  background: rgb(206, 93, 79);
+  color: rgb(61, 88, 88);
+}
+
+h1 {
+  text-align: center;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+  margin-bottom: 3px;
+  font-family: 'Crimson Text', serif;
+  color: rgb(73, 108, 109);
+}
+
+p {
+  text-align: center;
 }
