@@ -125,7 +125,6 @@ button:active{
 .formContainer {
   background: rgb(172, 224, 226);
   height: 26rem;
-  width: 300px;
   position: fixed;
   top: 25%;
   left: 50%;
@@ -135,10 +134,19 @@ button:active{
   box-shadow: 6px 2px 29px -4px rgba(0,0,0,0.75);
   display: flex;
   justify-content: center;
+  flex: 0 1 25rem;
 }
 
 #formContainer[hidden] {
   display: none;
+}
+
+#addBook {
+  margin: 25px;
+}
+
+#addBook h2 {
+  margin-top: 0;
 }
 
 label {
