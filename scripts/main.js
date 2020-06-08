@@ -23,6 +23,15 @@ addBookToLibrary('The Fellowship of the Ring', 'J. R. R. Tolkien', '423', true);
 function render() {
   // Loop through the myLibrary array
   myLibrary.forEach(book => {
+
+    // return if book is already rendered
+    let bookRendered = false;
+    Array.from(document.querySelectorAll('h1')).forEach(h => {
+      if (book.title == h.textContent) {bookRendered = true;}
+      return;
+    });
+    if (bookRendered) {return;}
+
     // Create DOM card element as container
     let card = document.createElement('div');
     card.classList.add('bookCard');
@@ -54,64 +63,26 @@ function render() {
     // Add card to card container
     let cardContainer = document.getElementById('cardContainer'); // Create reference to card container
     cardContainer.appendChild(card); // append the card to the container
-  })
+  });
 }
 
-render();
-
-const addBook = document.getElementById('addBook'); // Add variable for ADD BOOK button
-addBook.addEventListener('click', () => {// Add event listener for the ADD BOOK button
-  renderForm();
+const addBookButton = document.getElementById('addBookButton'); // Add variable for ADD BOOK button
+addBookButton.addEventListener('click', () => {// Add event listener for the ADD BOOK button
+  document.getElementById('formContainer').removeAttribute('hidden');
 });
 
-// Write function to render form to add new book
-function renderForm () {
-  // Create card for form
-  let formCard = document.createElement('div');
-  formCard.classList.add('formContainer'); // Add styles to form card
+// Add event listener for submitting form
+const addBookForm = document.forms['addBook']; // Create reference to form
+addBookForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  let title = addBookForm.querySelector('input[id="titleInput"]').value;
+  let author = addBookForm.querySelector('input[id="authorInput"]').value;
+  let pages = addBookForm.querySelector('input[id="pagesInput"]').value;
+  let read = (document.getElementById('fStatus').checked) ? true : false;
+  console.log(title, author, pages, read);
+  addBookToLibrary(title, author, pages, read);
+  render();
+  document.getElementById('formContainer').setAttribute('hidden', true);
+});
 
-  let form = document.createElement('FORM'); // Create form DOM element
-  let formHeading = document.createElement('h2'); // Create heading for form
-  formHeading.textContent = 'ADD BOOK'; // Add text to form heading
-  
-  let titleLabel = document.createElement('LABEL'); // Create label DOM element for title
-  titleLabel.textContent = 'TITLE'; // Add text to title label
-  titleLabel.setAttribute('for', 'titleInput');
-  let titleInput = document.createElement('INPUT'); // Create title input element
-  titleInput.setAttribute('type', 'text');
-  titleInput.setAttribute('placeholder', 'Book Title');
-  titleInput.setAttribute('id', 'titleInput');
-
-  let authorLabel = document.createElement('LABEL'); // Create label DOM element for author
-  authorLabel.textContent = 'AUTHOR'; // Add text to title label
-  authorLabel.setAttribute('for', 'authorInput');
-  let authorInput = document.createElement('INPUT'); // Create title input element
-  authorInput.setAttribute('type', 'text');
-  authorInput.setAttribute('placeholder', 'Author');
-  authorInput.setAttribute('id', 'authorInput');
-
-  let pagesLabel = document.createElement('LABEL'); // Create label DOM element for pages
-  pagesLabel.textContent = 'PAGE COUNT'; // Add text to title label
-  pagesLabel.setAttribute('for', 'pagesInput');
-  let pagesInput = document.createElement('INPUT'); // Create title input element
-  pagesInput.setAttribute('type', 'text');
-  pagesInput.setAttribute('placeholder', 'Number of Pages');
-  pagesInput.setAttribute('id', 'pagesInput');
-
-  let submit = document.createElement('button'); // Create button DOM element for submit
-  submit.setAttribute('type', 'submit');
-  submit.setAttribute('id', 'fsubmit');
-  submit.textContent = 'ADD';
-
-  form.appendChild(formHeading);// Append formHeading to form
-  form.appendChild(titleLabel); // Append title label to form
-  form.appendChild(titleInput); // Append title input to form
-  form.appendChild(authorLabel); // Append author label to form
-  form.appendChild(authorInput); // Append author input to form
-  form.appendChild(pagesLabel); // Append pages label to form
-  form.appendChild(pagesInput); // Append pages input to form
-  form.appendChild(submit); // Append submit button to form
-
-  formCard.appendChild(form); // Append form to formCard
-  document.body.appendChild(formCard) // Append to body
-}
+render();

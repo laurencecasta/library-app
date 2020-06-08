@@ -105,7 +105,7 @@ button:active{
   justify-content: center;
 }
 
-#addBook {
+#addBookButton {
   font-family: 'Tenali Ramakrishna', sans-serif;
   font-size: 27px;
   padding: auto;
@@ -117,14 +117,14 @@ button:active{
   color: rgb(255, 255, 255);
 }
 
-#addBook:hover {
+#addBookButton:hover {
   background: rgb(57, 88, 90);
   transition-duration: 0.2s;
 }
 
 .formContainer {
-  background: rgb(255, 255, 255);
-  height: 22rem;
+  background: rgb(172, 224, 226);
+  height: 26rem;
   width: 300px;
   position: fixed;
   top: 25%;
@@ -133,6 +133,12 @@ button:active{
   margin-left: -150px; /* Neagative half of width*/
   border-radius: 15px;
   box-shadow: 6px 2px 29px -4px rgba(0,0,0,0.75);
+  display: flex;
+  justify-content: center;
+}
+
+#formContainer[hidden] {
+  display: none;
 }
 
 label {
@@ -141,7 +147,48 @@ label {
   font-family: 'Tenali Ramakrishna', sans-serif;
 }
 
-input {
+.fBtnContainer {
+  display: flex;
+  justify-content: center;
+}
+
+#addBtn {
+  display: block;
+  font-family: 'Tenali Ramakrishna', sans-serif;
+  font-size: 27px;
+  padding: auto;
+  height: 1.45em;
+  font-weight: 500;
+  margin: 1rem;
+  border-radius: 8px;
+  background: rgb(69, 112, 114);
+  color: rgb(255, 255, 255);
+}
+
+#addBtn:hover {
+  background: rgb(57, 88, 90);
+  transition-duration: 0.2s;
+}
+
+input[type='text'] {
   display: block;
   margin-bottom: 10px;
+  font-size: 23px;
+  font-family: 'Tenali Ramakrishna', sans-serif;
+  line-height: 0.75em;
+  height: 0.75em;
+  padding-top: 0.25em;
+  border-radius: 5px;
+  border: 0;
+  background: white;
+}
+
+input[type='text']:focus {
+  outline: none;
+  background: white;
+}
+
+input[type='text']:active {
+  border: none;
+  background: white;
 }

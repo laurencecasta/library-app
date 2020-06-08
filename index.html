@@ -11,7 +11,21 @@
   <div class="cardContainer" id="cardContainer">
   </div>
   <div class="buttonContainer">
-    <button id="addBook">ADD BOOK</button>
+    <button id="addBookButton">ADD BOOK</button>
+  </div>
+  <div hidden class="formContainer" id="formContainer">
+    <form id="addBook">
+      <h2>ADD BOOK</h2>
+      <label for="titleInput">TITLE</label>
+      <input type="text" placeholder="Book Title" id="titleInput">
+      <label for="authorInput">AUTHOR</label>
+      <input type="text" placeholder="Author" id="authorInput">
+      <label for="pagesInput">PAGE COUNT</label>
+      <input type="text" placeholder="Number of Pages" id="pagesInput">
+      <label for="readStatus">READ</label>
+      <input type="checkbox" id="fStatus">
+      <div class="fBtnContainer"><button id="addBtn">ADD</button></div>
+    </form>
   </div>
   <script src="scripts/main.js"></script>
 </body>
