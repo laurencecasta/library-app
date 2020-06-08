@@ -27,6 +27,24 @@ body {
   margin: 2rem;
 }
 
+.rmContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#rmBook {
+  background: rgb(218, 180, 168);
+  border-top-right-radius: 15px;
+  margin-right: 5px;
+  margin-top: 5px;
+  color: rgb(72, 144, 146);
+}
+
+#rmBook:hover {
+  color: rgb(54, 89, 90);
+  cursor: pointer;
+}
+
 .author {
   font-size: 22px;
   color: rgb(72, 144, 146);

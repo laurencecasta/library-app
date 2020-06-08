@@ -35,6 +35,16 @@ function render() {
     // Create DOM card element as container
     let card = document.createElement('div');
     card.classList.add('bookCard');
+    card.setAttribute('data-index', myLibrary.indexOf(book).toString());// Add data attribute for index
+
+    // Insert delete button into container
+    let rmContainer = document.createElement('div'); // Create div for button
+    rmContainer.classList.add('rmContainer');
+    let rmBook = document.createElement('button');
+    rmBook.setAttribute('id', 'rmBook');
+    rmBook.textContent = 'x';
+    rmContainer.appendChild(rmBook);
+    card.appendChild(rmContainer);
     
     // Insert title of book into container
     let title = document.createElement('h1'); // Create heading element
