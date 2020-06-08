@@ -58,3 +58,60 @@ function render() {
 }
 
 render();
+
+const addBook = document.getElementById('addBook'); // Add variable for ADD BOOK button
+addBook.addEventListener('click', () => {// Add event listener for the ADD BOOK button
+  renderForm();
+});
+
+// Write function to render form to add new book
+function renderForm () {
+  // Create card for form
+  let formCard = document.createElement('div');
+  formCard.classList.add('formContainer'); // Add styles to form card
+
+  let form = document.createElement('FORM'); // Create form DOM element
+  let formHeading = document.createElement('h2'); // Create heading for form
+  formHeading.textContent = 'ADD BOOK'; // Add text to form heading
+  
+  let titleLabel = document.createElement('LABEL'); // Create label DOM element for title
+  titleLabel.textContent = 'TITLE'; // Add text to title label
+  titleLabel.setAttribute('for', 'titleInput');
+  let titleInput = document.createElement('INPUT'); // Create title input element
+  titleInput.setAttribute('type', 'text');
+  titleInput.setAttribute('placeholder', 'Book Title');
+  titleInput.setAttribute('id', 'titleInput');
+
+  let authorLabel = document.createElement('LABEL'); // Create label DOM element for author
+  authorLabel.textContent = 'AUTHOR'; // Add text to title label
+  authorLabel.setAttribute('for', 'authorInput');
+  let authorInput = document.createElement('INPUT'); // Create title input element
+  authorInput.setAttribute('type', 'text');
+  authorInput.setAttribute('placeholder', 'Author');
+  authorInput.setAttribute('id', 'authorInput');
+
+  let pagesLabel = document.createElement('LABEL'); // Create label DOM element for pages
+  pagesLabel.textContent = 'PAGE COUNT'; // Add text to title label
+  pagesLabel.setAttribute('for', 'pagesInput');
+  let pagesInput = document.createElement('INPUT'); // Create title input element
+  pagesInput.setAttribute('type', 'text');
+  pagesInput.setAttribute('placeholder', 'Number of Pages');
+  pagesInput.setAttribute('id', 'pagesInput');
+
+  let submit = document.createElement('button'); // Create button DOM element for submit
+  submit.setAttribute('type', 'submit');
+  submit.setAttribute('id', 'fsubmit');
+  submit.textContent = 'ADD';
+
+  form.appendChild(formHeading);// Append formHeading to form
+  form.appendChild(titleLabel); // Append title label to form
+  form.appendChild(titleInput); // Append title input to form
+  form.appendChild(authorLabel); // Append author label to form
+  form.appendChild(authorInput); // Append author input to form
+  form.appendChild(pagesLabel); // Append pages label to form
+  form.appendChild(pagesInput); // Append pages input to form
+  form.appendChild(submit); // Append submit button to form
+
+  formCard.appendChild(form); // Append form to formCard
+  document.body.appendChild(formCard) // Append to body
+}

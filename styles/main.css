@@ -77,6 +77,13 @@ h1 {
   color: rgb(73, 108, 109);
 }
 
+h2 {
+  text-align: center;
+  font-size: 35px;
+  font-family: 'Tenali Ramakrishna', sans-serif;
+  margin-bottom: 0px;
+}
+
 p {
   text-align: center;
 }
@@ -107,10 +114,34 @@ button:active{
   margin: 1rem;
   border-radius: 8px;
   background: rgb(69, 112, 114);
-  color: rgb(255, 231, 224);
+  color: rgb(255, 255, 255);
 }
 
 #addBook:hover {
   background: rgb(57, 88, 90);
   transition-duration: 0.2s;
+}
+
+.formContainer {
+  background: rgb(255, 255, 255);
+  height: 22rem;
+  width: 300px;
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  margin-top: -50px; /* Neagative half of height*/
+  margin-left: -150px; /* Neagative half of width*/
+  border-radius: 15px;
+  box-shadow: 6px 2px 29px -4px rgba(0,0,0,0.75);
+}
+
+label {
+  text-align: center;
+  font-size: 26px;
+  font-family: 'Tenali Ramakrishna', sans-serif;
+}
+
+input {
+  display: block;
+  margin-bottom: 10px;
 }
