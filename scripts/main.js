@@ -1,4 +1,7 @@
 let myLibrary = [];
+if (localStorage.getItem('myLibrary')) {
+  myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
+}
 
 function Book(title, author, pages, bookRead) {
   this.title = title;
@@ -13,12 +16,12 @@ function Book(title, author, pages, bookRead) {
 
 function addBookToLibrary (title, author, pages, bookRead) {
   let newBook = new Book(title, author, pages, bookRead);
+  if (myLibrary.indexOf(newBook) > 0) {return;}
   myLibrary.push(newBook);
-}
 
-addBookToLibrary('Moby Dick', 'Herman Melville', '5000', true);
-addBookToLibrary('The Proximity Principle', 'Ken Coleman', '215', false);
-addBookToLibrary('The Fellowship of the Ring', 'J. R. R. Tolkien', '423', true);
+  // Add data to local storage
+  localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+}
 
 function render() {
   // Loop through the myLibrary array
@@ -51,6 +54,7 @@ function render() {
       let bookIndex = myLibrary.indexOf(book);
       document.querySelector(`div[data-index="${bookIndex.toString()}"]`).remove(); // Remove from the DOM
       myLibrary.splice(bookIndex, 1); // Remove from the Array
+      
       // Loop through library to reassign indeces
       let indexCounter = 0;
       Array.from(document.querySelectorAll('.bookCard')).forEach(bookNode => {
@@ -58,6 +62,9 @@ function render() {
         indexCounter++;
         render();
       })
+
+      // Reset local storage data
+      localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
     });
     
     // Insert title of book into container
@@ -103,6 +110,14 @@ addBookButton.addEventListener('click', () => {// Add event listener for the ADD
   document.getElementById('formContainer').removeAttribute('hidden');
 });
 
+// Add event listener for closing form
+const rmForm = document.getElementById('rmForm');
+rmForm.addEventListener('click', (e) => {
+  e.preventDefault();
+  document.getElementById('formContainer').setAttribute('hidden', true);
+  addBookForm.reset();
+})
+
 // Add event listener for submitting form
 const addBookForm = document.forms['addBook']; // Create reference to form
 addBookForm.addEventListener('submit', (e) => {
@@ -115,6 +130,7 @@ addBookForm.addEventListener('submit', (e) => {
   addBookToLibrary(title, author, pages, read);
   render();
   document.getElementById('formContainer').setAttribute('hidden', true);
+  addBookForm.reset();
 });
 
 render();

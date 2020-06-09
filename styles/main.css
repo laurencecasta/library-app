@@ -156,7 +156,7 @@ button:active{
 
 .formContainer {
   background: rgb(172, 224, 226);
-  height: 26rem;
+  height: 26.5rem;
   position: fixed;
   top: 25%;
   left: 50%;
@@ -173,8 +173,23 @@ button:active{
   display: none;
 }
 
+#rmForm {
+  background: rgb(172, 224, 226);
+  border-top-right-radius: 15px;
+  margin-right: -2px;
+  margin-top: 5px;
+  color: rgb(72, 144, 146);
+  font-weight: 700;
+}
+
+#rmForm:hover {
+  color: rgb(54, 89, 90);
+  cursor: pointer;
+}
+
 #addBook {
   margin: 25px;
+  margin-top: 10px;
 }
 
 #addBook h2 {
@@ -208,6 +223,7 @@ label {
 #addBtn:hover {
   background: rgb(57, 88, 90);
   transition-duration: 0.2s;
+  cursor: pointer;
 }
 
 input[type='text'] {
