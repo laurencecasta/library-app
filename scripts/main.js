@@ -48,9 +48,16 @@ function render() {
 
     // Add event listener for delete button
     rmBook.addEventListener('click', (e) => {
-      bookIndex = myLibrary.indexOf(book);
+      let bookIndex = myLibrary.indexOf(book);
       document.querySelector(`div[data-index="${bookIndex.toString()}"]`).remove(); // Remove from the DOM
       myLibrary.splice(bookIndex, 1); // Remove from the Array
+      // Loop through library to reassign indeces
+      let indexCounter = 0;
+      Array.from(document.querySelectorAll('.bookCard')).forEach(bookNode => {
+        bookNode.setAttribute('data-index', indexCounter.toString());
+        indexCounter++;
+        render();
+      })
     });
     
     // Insert title of book into container
