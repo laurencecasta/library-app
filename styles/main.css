@@ -38,6 +38,7 @@ body {
   margin-right: 5px;
   margin-top: 5px;
   color: rgb(72, 144, 146);
+  font-weight: 700;
 }
 
 #rmBook:hover {
@@ -81,9 +82,21 @@ body {
   color: rgb(61, 88, 88);
 }
 
+.read:hover {
+  cursor: pointer;
+  background: rgb(22, 119, 66);
+  transition-duration: 0.2s;
+}
+
 .notRead {
   background: rgb(206, 93, 79);
   color: rgb(61, 88, 88);
+}
+
+.notRead:hover {
+  cursor: pointer;
+  background: rgb(160, 78, 67);
+  transition-duration: 0.2s;
 }
 
 h1 {
@@ -138,6 +151,7 @@ button:active{
 #addBookButton:hover {
   background: rgb(57, 88, 90);
   transition-duration: 0.2s;
+  cursor: pointer;
 }
 
 .formContainer {

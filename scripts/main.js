@@ -35,7 +35,7 @@ function render() {
     // Create DOM card element as container
     let card = document.createElement('div');
     card.classList.add('bookCard');
-    card.setAttribute('data-index', myLibrary.indexOf(book).toString());// Add data attribute for index
+    card.setAttribute('data-index', myLibrary.indexOf(book).toString()); // Add data attribute for index
 
     // Insert delete button into container
     let rmContainer = document.createElement('div'); // Create div for button
@@ -45,6 +45,13 @@ function render() {
     rmBook.textContent = 'x';
     rmContainer.appendChild(rmBook);
     card.appendChild(rmContainer);
+
+    // Add event listener for delete button
+    rmBook.addEventListener('click', (e) => {
+      bookIndex = myLibrary.indexOf(book);
+      document.querySelector(`div[data-index="${bookIndex.toString()}"]`).remove(); // Remove from the DOM
+      myLibrary.splice(bookIndex, 1); // Remove from the Array
+    });
     
     // Insert title of book into container
     let title = document.createElement('h1'); // Create heading element
@@ -67,8 +74,16 @@ function render() {
     let bookRead = document.createElement('p') // Create paragraph element for book status
     bookRead.textContent = (book.bookRead) ? 'READ' : 'NOT READ';// set the text content to book status
     bookRead.classList.add('bookStatus');
-    (book.bookRead) ? bookRead.classList.add('read') : bookRead.classList.add('notRead'); // Add styles dependent on read status
+    (book.bookRead) ? bookRead.classList.toggle('read') : bookRead.classList.toggle('notRead'); // Add styles dependent on read status
     card.appendChild(bookRead);
+
+    // Add event listener for read status to toggle
+    bookRead.addEventListener('click', (e) => {
+      book.bookRead = !book.bookRead;
+      bookRead.classList.toggle('read');
+      bookRead.classList.toggle('notRead');
+      bookRead.textContent = (book.bookRead) ? 'READ' : 'NOT READ';
+    });
 
     // Add card to card container
     let cardContainer = document.getElementById('cardContainer'); // Create reference to card container
