@@ -161,7 +161,7 @@ button:active{
   top: 25%;
   left: 50%;
   margin-top: -50px; /* Neagative half of height*/
-  margin-left: -150px; /* Neagative half of width*/
+  margin-left: -135px; /* Neagative half of width*/
   border-radius: 15px;
   box-shadow: 6px 2px 29px -4px rgba(0,0,0,0.75);
   display: flex;
