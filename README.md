@@ -1,4 +1,2 @@
-# Still to Do Before Adding to Portfolio
-Add title to page
-Figure out way to add default books and still be able to delete them.
-If not then, add message indicating that library is empty and prompts user to input books. (will likely go this direction)
+# Library Project
+This project demonstrates basic CRUD capabilities. A user can add and delete books with basic information about the book: the title, author, number of pages, and whether or not the book has been read. All of the data for this project exists in the front end. The user is able to persist their data on the browser of their personal computer. This functionality is made possible with the use of the localStorage property of the Window object. When the user adds a book to the library, a book object is added to an array. This array is then stored in the localStorage property of the Window object. This data cannot persist beyond the user's personal computer due to the lack of a data base server.
